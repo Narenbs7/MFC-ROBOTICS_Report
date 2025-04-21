@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EchoSwarm EEG Robotics</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Banner -->
+  <section class="banner">
+    <div class="container">
+      <div class="info">
+        <p class="course">22 AIE 214 | 22 MAT 230</p>
+        <h1>“EchoSwarm” EEG-Guided Swarm Robotics</h1>
+        <h2>Optimal Control and Distributed Coordination via Neural Signal Processing</h2>
+        <p class="tag">End Semester Final Review – April 2025</p>
+      </div>
+      <div class="members">
+        <p><strong>Group - B6 (AIE)</strong></p>
+        <p>Akhilesh M – CB.SC.U4AIE23111</p>
+        <p>Naren B S – CB.SC.U4AIE23152</p>
+        <p>Nitin Krishna – CB.SC.U4AIE23156</p>
+        <p>Gaurav Mahesh – CB.SC.U4AIE23176</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container">
+    <section id="abstract">
+      <h2>Abstract</h2>
+      <p>The “EchoSwarm” project presents a novel integration of EEG-based emotional recognition with drone swarm control, using machine learning and convex optimization. Emotions like happiness, fear, sadness, and neutrality are classified and mapped to geometric drone formations in CoppeliaSim, creating a hands-free, intuitive control interface.</p>
+    </section>
+
+    <section id="introduction">
+      <h2>Introduction</h2>
+      <p>EchoSwarm enables emotion-driven robotic behavior using EEG signals. This brain-computer interface classifies emotional states and uses them to guide real-time drone formations, showcasing new possibilities in human-robot interaction.</p>
+    </section>
+
+    <section id="literature">
+      <h2>Literature Review / Related Work</h2>
+      <p>Zheng et al. (2015) introduced the SEED dataset for EEG emotion recognition. Other work includes Aydin et al.'s formation control in robotics, Boyd & Vandenberghe’s convex optimization for robot motion, and Murray's swarm coordination models. EchoSwarm uniquely combines these with emotion-driven control.</p>
+    </section>
+
+    <section id="methodology">
+      <h2>Methodology & Implementation</h2>
+      <ul>
+        <li>Dataset: SEED-IV for 4 emotion classes.</li>
+        <li>Preprocessing: PSD, DE, fractals, Butterworth filtering.</li>
+        <li>Models: ConvLSTM2D, RF, SVM.</li>
+        <li>Optimization: PSO for drone coordination.</li>
+        <li>Simulation: Real-time emotion-based shape generation in CoppeliaSim.</li>
+      </ul>
+      <img src="images/drone-formation-results.png" alt="Drone Formations">
+    </section>
+
+    <section id="results">
+      <h2>Results & Discussion</h2>
+      <p>ConvLSTM2D achieved ~71% accuracy, outperforming RF and SVM. In CoppeliaSim, emotion-specific formations were stable and visually accurate, demonstrating the effectiveness of EEG-guided drone coordination.</p>
+      <img src="images/model-accuracy.png" alt="Model Accuracy">
+    </section>
+
+    <section id="conclusion">
+      <h2>Conclusion & Future Work</h2>
+      <p>EchoSwarm highlights the future of intuitive robotic control through EEG interfaces. Future goals include real-time EEG streaming, adaptive formation control via reinforcement learning, and physical swarm deployment.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 EchoSwarm Project | Group B6 (AIE)</p>
+  </footer>
+
+</body>
+</html>
