@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EchoSwarm EEG Robotics</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    .section { padding-top: 4rem; padding-bottom: 4rem; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+  <!-- Custom Banner -->
+  <section class="bg-gradient-to-br from-gray-900 to-blue-900 text-white py-10 px-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <p class="uppercase font-semibold text-sm tracking-widest">22 AIE 214 - Introduction to AI Robotics<br>22 MAT 230 - Mathematics for Computing - 4</p>
+        <h1 class="mt-4 text-3xl md:text-4xl font-extrabold">“EchoSwarm” <span class="italic font-medium">EEG-Guided Swarm Robotics</span></h1>
+        <h2 class="text-xl md:text-2xl font-medium mt-2">Optimal Control and Distributed Coordination via Neural Signal Processing</h2>
+        <div class="mt-4 bg-teal-600 inline-block px-4 py-2 rounded-full shadow text-white font-semibold text-sm">End Semester Final Review - April 2025</div>
+      </div>
+      <div class="bg-gray-800 border border-gray-600 rounded-lg p-4 text-sm font-mono">
+        <p><strong>Group - B6 (AIE)</strong></p>
+        <p>Akhilesh M: <span class="text-blue-300">CB.SC.U4AIE23111</span></p>
+        <p>Naren B S: <span class="text-blue-300">CB.SC.U4AIE23152</span></p>
+        <p>Nitin Krishna: <span class="text-blue-300">CB.SC.U4AIE23156</span></p>
+        <p>Gaurav Mahesh: <span class="text-blue-300">CB.SC.U4AIE23176</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation Bar -->
+  <nav class="bg-white shadow sticky top-0 z-50">
+    <div class="container mx-auto p-3 flex flex-wrap gap-4 justify-center">
+      <a href="#abstract" class="text-blue-600 font-semibold hover:underline">Abstract</a>
+      <a href="#toc" class="text-blue-600 font-semibold hover:underline">Table of Contents</a>
+      <a href="#intro" class="text-blue-600 font-semibold hover:underline">Introduction</a>
+      <a href="#literature" class="text-blue-600 font-semibold hover:underline">Related Work</a>
+      <a href="#methodology" class="text-blue-600 font-semibold hover:underline">Methodology</a>
+      <a href="#results" class="text-blue-600 font-semibold hover:underline">Results</a>
+      <a href="#demo" class="text-blue-600 font-semibold hover:underline">Demo</a>
+      <a href="#conclusion" class="text-blue-600 font-semibold hover:underline">Conclusion</a>
+      <a href="#references" class="text-blue-600 font-semibold hover:underline">References</a>
+    </div>
+  </nav>
+
+  <main class="container mx-auto px-4">
+    <section id="abstract" class="section">
+      <h2 class="text-3xl font-bold text-gray-800">Abstract</h2>
+      <p class="mt-4 text-lg">
+        The “EchoSwarm” project presents a groundbreaking integration of neurotechnology and swarm robotics through an EEG-guided drone control system. Leveraging the SEED-IV dataset, the system classifies EEG signals into four core emotional states—happiness, sadness, fear, and neutrality—using advanced machine learning models, including ConvLSTM2D, Random Forest, and Support Vector Machines (SVM). These emotional states are then mapped to distinct geometric drone formations (e.g., circle for happiness, triangle for sadness), which are simulated in real-time using CoppeliaSim.
+
+        The methodology combines Butterworth filtering, spectral analysis, and fractal dimension extraction to preprocess EEG signals. These features feed into deep neural architectures that capture spatiotemporal dependencies, providing accurate emotion classification across subjects. To control swarm behavior, the system applies Particle Swarm Optimization (PSO) and convex optimization techniques for precise, stable formation control in a multi-agent setup.
+        
+        Real-time integration is achieved via ZMQ-based Python scripting, allowing seamless communication between the EEG classification output and drone simulation. This hands-free, intuitive interface for robotic control introduces exciting possibilities for human-robot interaction, with potential applications in therapy, education, emergency signaling, and interactive media.
+        
+        </p>
+    </section>
+
+    <section id="toc" class="section bg-gray-100 rounded-xl shadow-md p-6">
+      <h2 class="text-3xl font-bold text-gray-800">Table of Contents</h2>
+      <ul class="mt-4 list-disc list-inside text-lg">
+        <li><a href="#abstract">Abstract</a></li>
+        <li><a href="#intro">Introduction</a></li>
+        <li><a href="#literature">Related Work</a></li>
+        <li><a href="#methodology">Methodology</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#demo">Demo</a></li>
+        <li><a href="#conclusion">Conclusion</a></li>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </section>
+
+    <section id="intro" class="section">
+      <h2 class="text-3xl font-bold">Introduction</h2>
+      <p class="mt-4 text-lg"> 
+        In the evolving field of robotics, multi-agent coordination plays a vital role in scenarios like search and rescue, agriculture, and exploration.The “EchoSwarm” project explores this frontier by combining EEG-based emotion recognition with multi-drone swarm coordination, enabling users to command robotic agents using only their mental states.
+
+        In conventional robotics, human input is typically given via physical interfaces—joysticks, touchscreens, or programmed commands. EchoSwarm shifts this paradigm by allowing emotion-driven interaction, leveraging electroencephalogram (EEG) signals captured during emotional experiences. These signals are analyzed and classified using advanced machine learning models to detect four emotional states: Happy, Sad, Fear, and Neutral.
+        
+        Each detected emotion is directly mapped to a unique geometric formation of drones, simulated in real-time in CoppeliaSim, a high-fidelity robotics simulation platform. For instance, a state of happiness may result in the drones forming a circle, while fear may prompt a star-shaped configuration. This emotion-to-formation mapping allows users to engage with robotic swarms in a natural, non-verbal, and hands-free manner.
+        
+        By integrating machine learning, swarm robotics, and convex optimization, this project not only introduces a novel form of human-robot interaction but also lays the groundwork for practical applications in fields like therapeutic robotics, emotional AI, interactive art, and assistive technology.
+
+      </p>
+    </section>
+
+    <section id="literature" class="section bg-gray-100 rounded-xl shadow-md p-6">
+      <h2 class="text-3xl font-bold">Literature Review / Related Work</h2>
+      <div class="mt-4 space-y-6 text-lg">
+        <p><strong>EEG-Based Emotion Detection:</strong> Zheng et al. (2015) introduced the SEED dataset, a benchmark for EEG-based emotion classification. They utilized deep belief networks to classify brainwave signals into emotional states such as happiness and fear. This inspired EchoSwarm’s use of advanced machine learning models like ConvLSTM for real-time emotional analysis.</p>
+    
+        <p><strong>Multi-Robot Formation Control:</strong> Aydin et al. (2014) proposed algorithms for structured coordination among multiple robots. While their strategies emphasized formation stability and scalability, they did not explore control via emotional cues. EchoSwarm extends this by mapping emotional states to geometric formations in drone swarms.</p>
+    
+        <p><strong>Convex Optimization in Robotics:</strong> Boyd & Vandenberghe (2004) highlighted how convex optimization can efficiently solve multi-agent control problems. EchoSwarm integrates these techniques to calculate optimal paths and maintain precise formations based on predicted emotions.</p>
+    
+        <p><strong>Swarm Coordination via Optimization:</strong> Murray (2007) applied optimization frameworks to swarm behavior, addressing coordination and system stability. This work underpins EchoSwarm’s use of Particle Swarm Optimization (PSO) for dynamic drone positioning.</p>
+    
+        <p class="italic">EchoSwarm is among the first systems to combine emotion recognition from EEG signals with real-time swarm robotics, bridging a significant gap in interdisciplinary research between brain-computer interfaces and autonomous drone coordination.</p>
+      </div>
+    </section>
+    
+
+    <section id="methodology" class="section bg-white rounded-xl shadow-md p-6">
+      <h2 class="text-3xl font-bold text-gray-800 mb-4">Methodology & Implementation</h2>
+    
+      <p class="text-lg mb-6">This section explains how EEG signals were processed, classified, and translated into drone swarm behaviors. The system pipeline integrates signal filtering, feature extraction, emotion classification, and simulation in CoppeliaSim.</p>
+    
+      <!-- STEP 1: Dataset Selection -->
+      <h3 class="text-2xl font-semibold text-gray-700 mt-6 mb-2">1. Dataset Selection</h3>
+      <p class="text-lg mb-4">We used the <strong>SEED-IV dataset</strong>, which contains EEG recordings from 15 subjects across 3 sessions. Each subject was exposed to 24 trials of emotion-evoking videos, producing high-quality EEG data with four emotional labels: Happy, Sad, Fear, and Neutral.</p>
+      <img src="images/seed-dataset.png" alt="SEED Dataset Overview" class="rounded-lg shadow-md my-4 w-full md:w-2/3 mx-auto" />
+    
+      <!-- STEP 2: Signal Preprocessing -->
+      <h3 class="text-2xl font-semibold text-gray-700 mt-6 mb-2">2. EEG Preprocessing</h3>
+      <p class="text-lg mb-4">The EEG data was filtered using a <strong>Butterworth Bandpass Filter</strong> (0.5–70 Hz), then downsampled from 1000 Hz to 200 Hz. Features were extracted using:</p>
+      <ul class="list-disc list-inside text-lg ml-4 space-y-1">
+        <li>Power Spectral Density (PSD) via Welch’s Method</li>
+        <li>Differential Entropy (DE)</li>
+        <li>Fractal Dimensions (Higuchi, Katz)</li>
+        <li>Hurst Exponent & Statistical Metrics</li>
+      </ul>
+      <img src="images/eeg-preprocessing.png" alt="EEG Signal Preprocessing" class="rounded-lg shadow-md my-4 w-full md:w-2/3 mx-auto" />
+    
+      <!-- STEP 3: Emotion Classification -->
+      <h3 class="text-2xl font-semibold text-gray-700 mt-6 mb-2">3. Emotion Classification</h3>
+      <p class="text-lg mb-4">We trained multiple models on the extracted features:</p>
+      <ul class="list-disc list-inside text-lg ml-4 space-y-1">
+        <li><strong>ConvLSTM2D:</strong> Captures spatiotemporal EEG patterns using convolution and LSTM layers</li>
+        <li><strong>Random Forest (RF):</strong> Used for baseline accuracy from raw EEG features</li>
+        <li><strong>Support Vector Machine (SVM):</strong> Applied with RBF kernel for classification</li>
+      </ul>
+      <img src="images/convlstm-architecture.png" alt="ConvLSTM Model Architecture" class="rounded-lg shadow-md my-4 w-full md:w-2/3 mx-auto" />
+    
+      <!-- STEP 4: Swarm Control via Optimization -->
+      <h3 class="text-2xl font-semibold text-gray-700 mt-6 mb-2">4. Swarm Control & Optimization</h3>
+      <p class="text-lg mb-4">We used <strong>Particle Swarm Optimization (PSO)</strong> to compute drone positions and maintain geometric formations based on predicted emotions. PSO equations optimized formation stability by minimizing inter-drone distance errors.</p>
+      <img src="images/pso-logic.png" alt="Particle Swarm Optimization Diagram" class="rounded-lg shadow-md my-4 w-full md:w-2/3 mx-auto" />
+    
+      <!-- STEP 5: Real-Time Drone Simulation -->
+      <h3 class="text-2xl font-semibold text-gray-700 mt-6 mb-2">5. Real-Time Simulation in CoppeliaSim</h3>
+      <p class="text-lg mb-4">Drone formations are rendered in <strong>CoppeliaSim</strong> using its physics engine and the ZMQ Remote API. Each predicted emotion triggers a different shape:</p>
+      <ul class="list-disc list-inside text-lg ml-4 space-y-1">
+        <li>😊 Happy → Circle</li>
+        <li>😞 Sad → Triangle</li>
+        <li>😨 Fear → Star</li>
+        <li>😐 Neutral → Square</li>
+      </ul>
+      <img src="images/drone-shapes.png" alt="Drone Formation Examples" class="rounded-lg shadow-md my-4 w-full md:w-2/3 mx-auto" />
+    
+      <p class="text-lg mt-4">All formations were generated in real time using Python scripts and updated dynamically based on trial inputs from the EEG dataset.</p>
+    </section>
+    
+
+    <section id="results" class="section bg-gray-100 rounded-xl shadow-md p-6">
+      <h2 class="text-3xl font-bold">Results and Discussion</h2>
+      <p class="mt-4 text-lg">Our simulation successfully forms predefined shapes such as letters or symbols based on input EEG patterns. Drones adaptively avoid collisions and maintain coordinated formations.</p>
+    </section>
+
+    <section id="demo" class="section">
+      <h2 class="text-3xl font-bold">Demo of Simulation</h2>
+      <p class="mt-4 text-lg">Check out the video demo of our CoppeliaSim environment:</p>
+      <div class="mt-4">
+        <iframe width="560" height="315" src="C:\Users\User\Desktop\robo\web\Screen Recording 2025-04-11 at 2.37.47 AM.mp4" title="Demo" class="rounded-xl shadow-md" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section id="conclusion" class="section bg-gray-100 rounded-xl shadow-md p-6">
+      <h2 class="text-3xl font-bold">Conclusion and Future Work</h2>
+      <p class="mt-4 text-lg">Our EEG-based drone control system demonstrates potential in human-robot interaction. Future work includes improving EEG classification and enabling real-time control on hardware drones.</p>
+    </section>
+
+    <section id="references" class="section">
+      <h2 class="text-3xl font-bold">References</h2>
+      <ul class="mt-4 text-lg list-disc list-inside">
+        <li>Robot Operating System (ROS) documentation</li>
+        <li>CoppeliaSim user guide</li>
+        <li>BCI literature: EEG control interfaces</li>
+        <li>Convex Optimization by Boyd & Vandenberghe</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="bg-gray-800 text-white text-center p-6 mt-12">
+    <p class="text-lg">Contributors: Akhilesh M, Naren B S, Nitin Krishna, Gaurav Mahesh</p>
+    <p class="text-sm mt-1">Multi-Functional Control in Robotics Project, 2025</p>
+  </footer>
+
+</body>
+</html>
