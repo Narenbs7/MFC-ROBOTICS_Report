@@ -186,7 +186,7 @@
         <p class="text-lg text-justify leading-relaxed px-2">
           We utilized the publicly available <strong>SEED-IV dataset</strong>, comprising EEG signals from 15 participants recorded over 3 sessions. Each session includes 24 trials eliciting one of four emotions—<em>Happy</em>, <em>Sad</em>, <em>Fear</em>, and <em>Neutral</em>. The signals were captured using a 62-channel ESI NeuroScan system at a sampling rate of 1000 Hz and later downsampled to 200 Hz for efficient processing.
         </p>
-        <img src="images/seed-dataset.png" alt="SEED-IV Dataset Overview" class="rounded-lg shadow-md my-4 w-full md:w-2/3 mx-auto" />
+        <img src="images/seed1.png" alt="SEED-IV Dataset Overview" class="rounded-lg shadow-md my-4 w-full md:w-2/3 mx-auto" />
       
         <!-- EEG Signal Preprocessing -->
         <h3 class="text-2xl font-semibold text-gray-700 mt-6 mb-2">2. EEG Signal Preprocessing</h3>
@@ -199,7 +199,7 @@
           <li><strong>Fractal Dimensions:</strong> Higuchi and Katz methods</li>
           <li><strong>Statistical Features:</strong> mean, variance, Hurst exponent</li>
         </ul>
-        <img src="images/eeg-preprocessing.png" alt="EEG Signal Preprocessing" class="rounded-lg shadow-md my-4 w-full md:w-2/3 mx-auto" />
+        <img src="images/preprocess.PNG" alt="EEG Signal Preprocessing" class="rounded-lg shadow-md my-4 w-full md:w-2/3 mx-auto" />
       
         <!-- Emotion Classification -->
         <h3 class="text-2xl font-semibold text-gray-700 mt-6 mb-2">3. Emotion Classification</h3>
@@ -211,14 +211,13 @@
           <li><strong>Random Forest:</strong> Used as a baseline classifier to evaluate raw feature effectiveness.</li>
           <li><strong>SVM (RBF Kernel):</strong> Effective for non-linear classification of multi-dimensional EEG features.</li>
         </ul>
-        <img src="images/convlstm-architecture.png" alt="ConvLSTM Model Architecture" class="rounded-lg shadow-md my-4 w-full md:w-2/3 mx-auto" />
+        <img src="images/convlstm.jfif" alt="ConvLSTM Model Architecture" class="rounded-lg shadow-md my-4 w-full md:w-2/3 mx-auto" />
       
         <!-- Optimization Algorithms -->
         <h3 class="text-2xl font-semibold text-gray-700 mt-6 mb-2">4. Swarm Control & Optimization</h3>
         <p class="text-lg text-justify leading-relaxed px-2">
           We implemented <strong>Particle Swarm Optimization (PSO)</strong> to determine optimal drone positions for shape formation based on the classified emotion. PSO minimizes formation error while maintaining collision-free motion through dynamic updates in each timestep. We also incorporated <strong>convex optimization constraints</strong> to ensure formation stability and avoid overlapping paths in tight spaces.
         </p>
-        <img src="images/pso-logic.png" alt="Particle Swarm Optimization Flow" class="rounded-lg shadow-md my-4 w-full md:w-2/3 mx-auto" />
       
         <!-- Real-Time Simulation -->
         <h3 class="text-2xl font-semibold text-gray-700 mt-6 mb-2">5. Real-Time Drone Simulation in CoppeliaSim</h3>
@@ -231,7 +230,6 @@
           <li><strong>😨 Fear → Star</strong></li>
           <li><strong>😐 Neutral → Square</strong></li>
         </ul>
-        <img src="images/drone-shapes.png" alt="Drone Formations in CoppeliaSim" class="rounded-lg shadow-md my-4 w-full md:w-2/3 mx-auto" />
       
         <!-- Integration -->
         <p class="text-lg text-justify leading-relaxed px-2 mt-4">
@@ -249,7 +247,7 @@
       <p class="text-lg text-justify leading-relaxed px-2">
         This module of the project focuses on simulating and controlling a quadcopter (drone) in a 3D virtual environment using <strong>CoppeliaSim</strong> (formerly V-REP). The drone is controlled using a custom PID controller integrated with realistic particle-based propulsion dynamics, providing an educational yet practical approach to UAV flight control.
       </p>
-      <img src="images/drone-simulation-overview.png" alt="Drone Simulation Overview" class="rounded-lg shadow-md my-4 w-full md:w-2/3 mx-auto" />
+      <img src="images/drone-simulation-overview.jpeg" alt="Drone Simulation Overview" class="rounded-lg shadow-md my-4 w-full md:w-2/3 mx-auto" />
     
       <!-- Components Added to the Drone -->
       <h3 class="text-2xl font-semibold text-gray-700 mt-6 mb-2">2. Components Added to the Drone</h3>
@@ -292,7 +290,6 @@
         <li>Max particles: 50 per rotor</li>
         <li>Physics flags: collision, cyclic behavior, gravity ignore</li>
       </ul>
-      <img src="images/particle-dynamics.png" alt="Particle-Based Propulsion System" class="rounded-lg shadow-md my-4 w-full md:w-2/3 mx-auto" />
       
       <!-- Reactive Forces and Torques -->
       <h4 class="text-xl font-semibold text-gray-600 mt-4 mb-2">2.3. Reactive Forces and Torques</h4>
@@ -355,7 +352,6 @@
       <p class="text-lg text-justify leading-relaxed px-2">
         These flags make the simulation adjustable for different testing scenarios.
       </p>
-      <img src="images/drone-settings.png" alt="Drone Simulation Settings" class="rounded-lg shadow-md my-4 w-full md:w-2/3 mx-auto" />
     </section>
     
 
@@ -369,14 +365,13 @@
       </p>
     
       <!-- Accuracy Plot -->
-      <img src="images/model-accuracy.png" alt="Model Accuracy Comparison" class="rounded-lg shadow-md my-4 w-full md:w-2/3 mx-auto" />
+      <img src="images/result.PNG" alt="Model Accuracy Comparison" class="rounded-lg shadow-md my-4 w-full md:w-2/3 mx-auto" />
     
       <!-- Confusion Matrix -->
       <h3 class="text-2xl font-semibold text-gray-700 mt-6 mb-2">Confusion Matrix</h3>
       <p class="text-lg text-justify leading-relaxed px-2">
         The confusion matrix below illustrates how well each emotion was classified by the ConvLSTM2D model. The diagonal values represent correctly predicted instances, while off-diagonal values indicate misclassifications. As seen, “Happy” and “Neutral” were identified with higher confidence, while “Sad” and “Fear” occasionally overlapped due to similar signal features.
       </p>
-      <img src="images/confusion-matrix.png" alt="Confusion Matrix" class="rounded-lg shadow-md my-4 w-full md:w-2/3 mx-auto" />
     
       <!-- Shape Formation Discussion -->
       <h3 class="text-2xl font-semibold text-gray-700 mt-6 mb-2">Drone Formation Mapping</h3>
@@ -389,7 +384,7 @@
         <li><strong>😨 Fear → Star:</strong> Denotes urgency or stress, simulating alert behavior.</li>
         <li><strong>😐 Neutral → Square:</strong> Represents balance or calmness.</li>
       </ul>
-      <img src="images/drone-shapes.png" alt="Emotion-based Drone Formations" class="rounded-lg shadow-md my-4 w-full md:w-2/3 mx-auto" />
+      <img src="images/emotion.PNG" alt="Emotion-based Drone Formations" class="rounded-lg shadow-md my-4 w-full md:w-2/3 mx-auto" />
     
       <!-- System Responsiveness -->
       <p class="text-lg text-justify leading-relaxed px-2 mt-4">
@@ -407,28 +402,60 @@
       <h2 class="text-3xl font-bold">Demo of Simulation</h2>
       <p class="mt-4 text-lg">Check out the video demo of our CoppeliaSim environment:</p>
       <div class="mt-4">
-        <iframe width="560" height="315" src="C:\Users\User\Desktop\robo\web\Screen Recording 2025-04-11 at 2.37.47 AM.mp4" title="Demo" class="rounded-xl shadow-md" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="images/demo.mp4" title="Demo" class="rounded-xl shadow-md" allowfullscreen></iframe>
       </div>
     </section>
 
-    <section id="conclusion" class="section bg-gray-100 rounded-xl shadow-md p-6">
-      <h2 class="text-3xl font-bold">Conclusion and Future Work</h2>
-      <p><strong>Conclusion</strong></p>
-      <p>In this project, we developed <strong>EchoSwarm</strong>, a novel approach to multi-robot coordination through EEG signals. By utilizing convex optimization techniques, AI-driven algorithms, and MFC, we enabled a group of drones to autonomously form shapes or letters based on the user’s mental commands. The integration of CoppeliaSim allowed us to simulate the drone movements with real-time coordination, achieving an intuitive and precise control mechanism. We also implemented key features such as collision avoidance, ensuring that the drones moved cohesively while avoiding interference with one another. Our results demonstrate that EEG signals can effectively serve as a reliable input source for controlling a swarm of robots, showcasing the potential for more intuitive human-robot interaction in future applications.</p>
+    <section id="conclusion" class="section bg-white rounded-xl shadow-md p-6">
+      <h2 class="text-3xl font-bold text-gray-800 mb-4">Conclusion and Future Work</h2>
       
-      <p>The project achieved its main goals of forming target shapes with multiple drones using real-time EEG signals, proving the viability of using brain-computer interfaces for advanced robotics coordination. The combination of convex optimization, AI, and simulation tools such as CoppeliaSim has shown promise in pushing the boundaries of what is achievable in autonomous drone swarm systems.</p>
+      <!-- Conclusion -->
+      <h3 class="text-2xl font-semibold text-gray-700 mt-4 mb-2">1. Conclusion</h3>
+      <p class="text-lg text-justify leading-relaxed px-2">
+        In this project, we developed <strong>EchoSwarm</strong>, a novel approach to multi-robot coordination through EEG signals. By utilizing convex optimization techniques, AI-driven algorithms, and MFC, we enabled a group of drones to autonomously form shapes or letters based on the user's mental commands. The integration of CoppeliaSim allowed us to simulate the drone movements with real-time coordination, achieving an intuitive and precise control mechanism. We also implemented key features such as collision avoidance, ensuring that the drones moved cohesively while avoiding interference with one another. Our results demonstrate that EEG signals can effectively serve as a reliable input source for controlling a swarm of robots, showcasing the potential for more intuitive human-robot interaction in future applications.
+      </p>
       
-      <p><strong>Future Work</strong></p>
-      <p>While the current implementation provides a solid foundation, there are several areas where <strong>EchoSwarm</strong> can be enhanced for broader applications:</p>
-      <ul>
-        <li><strong>Improved Signal Processing:</strong> The accuracy of EEG signals could be further refined by incorporating more advanced signal processing techniques, such as deep learning-based classification models, to reduce noise and increase the reliability of the signals in real-time scenarios.</li>
-        <li><strong>Expansion of Swarm Capabilities:</strong> Scaling up the number of drones in the swarm could be explored, introducing more complex coordination patterns, dynamic shape generation, and decentralized decision-making processes to enhance swarm autonomy.</li>
-        <li><strong>Real-World Testing:</strong> Conducting real-world tests with actual drones and EEG headsets would provide a more accurate assessment of the system's feasibility in a practical environment. This would also involve considering environmental factors such as GPS accuracy, wind, and battery life.</li>
-        <li><strong>Integration with Other Sensors:</strong> Incorporating additional sensors such as LIDAR or cameras for environmental perception could enable drones to not only follow human commands but also autonomously adapt to changing environments and obstacles, thus enhancing swarm intelligence.</li>
-        <li><strong>Enhanced User Interaction:</strong> Future versions of <strong>EchoSwarm</strong> could incorporate a more intuitive user interface that allows for additional types of input, such as gestures or speech, in combination with EEG signals, enabling more versatile and adaptive control mechanisms.</li>
-        <li><strong>Real-Time Learning:</strong> Implementing reinforcement learning could allow drones to adapt and optimize their coordination strategies based on past experiences, improving their efficiency and robustness over time.</li>
+      <p class="text-lg text-justify leading-relaxed px-2 mt-4">
+        The project achieved its main goals of forming target shapes with multiple drones using real-time EEG signals, proving the viability of using brain-computer interfaces for advanced robotics coordination. The combination of convex optimization, AI, and simulation tools such as CoppeliaSim has shown promise in pushing the boundaries of what is achievable in autonomous drone swarm systems.
+      </p>
+      
+      <img src="images/echoswarm-results.png" alt="EchoSwarm Final Results" class="rounded-lg shadow-md my-4 w-full md:w-2/3 mx-auto" />
+      
+      <!-- Future Work -->
+      <h3 class="text-2xl font-semibold text-gray-700 mt-6 mb-2">2. Future Work</h3>
+      <p class="text-lg text-justify leading-relaxed px-2">
+        While the current implementation provides a solid foundation, there are several areas where <strong>EchoSwarm</strong> can be enhanced for broader applications:
+      </p>
+      
+      <ul class="list-disc list-inside text-lg ml-8 my-4">
+        <li class="mb-3">
+          <strong>Improved Signal Processing:</strong> The accuracy of EEG signals could be further refined by incorporating more advanced signal processing techniques, such as deep learning-based classification models, to reduce noise and increase the reliability of the signals in real-time scenarios.
+        </li>
+        
+        <li class="mb-3">
+          <strong>Expansion of Swarm Capabilities:</strong> Scaling up the number of drones in the swarm could be explored, introducing more complex coordination patterns, dynamic shape generation, and decentralized decision-making processes to enhance swarm autonomy.
+        </li>
+        
+        <li class="mb-3">
+          <strong>Real-World Testing:</strong> Conducting real-world tests with actual drones and EEG headsets would provide a more accurate assessment of the system's feasibility in a practical environment. This would also involve considering environmental factors such as GPS accuracy, wind, and battery life.
+        </li>
+        
+        <li class="mb-3">
+          <strong>Integration with Other Sensors:</strong> Incorporating additional sensors such as LIDAR or cameras for environmental perception could enable drones to not only follow human commands but also autonomously adapt to changing environments and obstacles, thus enhancing swarm intelligence.
+        </li>
+        
+        <li class="mb-3">
+          <strong>Enhanced User Interaction:</strong> Future versions of <strong>EchoSwarm</strong> could incorporate a more intuitive user interface that allows for additional types of input, such as gestures or speech, in combination with EEG signals, enabling more versatile and adaptive control mechanisms.
+        </li>
+        
+        <li class="mb-3">
+          <strong>Real-Time Learning:</strong> Implementing reinforcement learning could allow drones to adapt and optimize their coordination strategies based on past experiences, improving their efficiency and robustness over time.
+        </li>
       </ul>
-      <p>By addressing these areas, <strong>EchoSwarm</strong> has the potential to evolve into a more sophisticated and versatile system, with applications ranging from search-and-rescue missions to collaborative industrial tasks, making it a step closer to realizing the full potential of human-robot collaboration.</p>
+      
+      <p class="text-lg text-justify leading-relaxed px-2 mt-4">
+        By addressing these areas, <strong>EchoSwarm</strong> has the potential to evolve into a more sophisticated and versatile system, with applications ranging from search-and-rescue missions to collaborative industrial tasks, making it a step closer to realizing the full potential of human-robot collaboration.
+      </p>
       
     </section>
 
