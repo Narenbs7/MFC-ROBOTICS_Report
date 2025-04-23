@@ -7,6 +7,7 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
   <style>
     html { scroll-behavior: smooth; }
     .section { padding-top: 4rem; padding-bottom: 4rem; }
@@ -15,38 +16,60 @@
 <body class="bg-gray-50 text-gray-800 font-sans">
 
   <!-- Custom Banner -->
-  <section class="bg-gradient-to-br from-gray-900 to-blue-900 text-white py-10 px-6">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-      <div>
-        <p class="uppercase font-semibold text-sm tracking-widest">22 AIE 214 - Introduction to AI Robotics<br>22 MAT 230 - Mathematics for Computing - 4</p>
-        <h1 class="mt-4 text-3xl md:text-4xl font-extrabold">“EchoSwarm” <span class="italic font-medium">EEG-Guided Swarm Robotics</span></h1>
-        <h2 class="text-xl md:text-2xl font-medium mt-2">Optimal Control and Distributed Coordination via Neural Signal Processing</h2>
-        <div class="mt-4 bg-teal-600 inline-block px-4 py-2 rounded-full shadow text-white font-semibold text-sm">End Semester Final Review - April 2025</div>
+  <section class="project-banner">
+    <div class="banner-container">
+      <div class="banner-content">
+        <div class="course-info">
+          <p>22 AIE 214 - Introduction to AI Robotics<br>22 MAT 230 - Mathematics for Computing - 4</p>
+        </div>
+        
+        <h1 class="project-title">
+          "EchoSwarm" <span class="project-subtitle">EEG-Guided Swarm Robotics</span>
+        </h1>
+        
+        <div class="project-description">
+          <h1>Optimal Control and Distributed Coordination via Neural Signal Processing</h1>
+        </div>
+        
+        <div class="review-badge">
+          End Semester Final Review - April 2025
+        </div>
       </div>
-      <div class="bg-gray-800 border border-gray-600 rounded-lg p-4 text-sm font-mono">
-        <p><strong>Group - B6 (AIE)</strong></p>
-        <p>Akhilesh M: <span class="text-blue-300">CB.SC.U4AIE23111</span></p>
-        <p>Naren B S: <span class="text-blue-300">CB.SC.U4AIE23152</span></p>
-        <p>Nitin Krishna: <span class="text-blue-300">CB.SC.U4AIE23156</span></p>
-        <p>Gaurav Mahesh: <span class="text-blue-300">CB.SC.U4AIE23176</span></p>
+      
+      <div class="team-card">
+        <div class="team-header">
+          <span class="team-title">Group - B6 (AIE)</span>
+        </div>
+        <ul class="team-members">
+          <li><span class="member-name">Akhilesh M:</span> <span class="member-id">CB.SC.U4AIE23111</span></li>
+          <li><span class="member-name">Naren B S:</span> <span class="member-id">CB.SC.U4AIE23152</span></li>
+          <li><span class="member-name">Nitin Krishna:</span> <span class="member-id">CB.SC.U4AIE23156</span></li>
+          <li><span class="member-name">Gaurav Mahesh:</span> <span class="member-id">CB.SC.U4AIE23176</span></li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- Navigation Bar -->
-  <nav class="bg-white shadow sticky top-0 z-50">
-    <div class="container mx-auto p-3 flex flex-wrap gap-4 justify-center">
-      <a href="#abstract" class="text-blue-600 font-semibold hover:underline">Abstract</a>
-      <a href="#toc" class="text-blue-600 font-semibold hover:underline">Table of Contents</a>
-      <a href="#intro" class="text-blue-600 font-semibold hover:underline">Introduction</a>
-      <a href="#literature" class="text-blue-600 font-semibold hover:underline">Related Work</a>
-      <a href="#methodology" class="text-blue-600 font-semibold hover:underline">Methodology</a>
-      <a href="#results" class="text-blue-600 font-semibold hover:underline">Results</a>
-      <a href="#demo" class="text-blue-600 font-semibold hover:underline">Demo</a>
-      <a href="#conclusion" class="text-blue-600 font-semibold hover:underline">Conclusion</a>
-      <a href="#references" class="text-blue-600 font-semibold hover:underline">References</a>
+<!-- Navigation Bar -->
+<nav class="main-nav">
+  <div class="nav-container">
+    <div class="nav-logo">
+      <span>Project Report</span>
     </div>
-  </nav>
+    <div class="nav-links">
+      <a href="#abstract" class="nav-item">Abstract</a>
+      <a href="#toc" class="nav-item">Contents</a>
+      <a href="#intro" class="nav-item">Introduction</a>
+      <a href="#literature" class="nav-item">Related Work</a>
+      <a href="#methodology" class="nav-item">Methodology</a>
+      <a href="#drone-simulation" class="nav-item">Simulation</a>
+      <a href="#results" class="nav-item">Results</a>
+      <a href="#demo" class="nav-item">Demo</a>
+      <a href="#conclusion" class="nav-item">Conclusion</a>
+      <a href="#references" class="nav-item">References</a>
+    </div>
+  </div>
+</nav>
 
   <main class="container mx-auto px-4">
     <section id="abstract" class="section">
@@ -81,18 +104,21 @@
       
     </section>
 
-    <section id="toc" class="section bg-gray-100 rounded-xl shadow-md p-6">
-      <h2 class="text-3xl font-bold text-gray-800">Table of Contents</h2>
-      <ul class="mt-4 list-disc list-inside text-lg">
-        <li><a href="#abstract">Abstract</a></li>
-        <li><a href="#intro">Introduction</a></li>
-        <li><a href="#literature">Related Work</a></li>
-        <li><a href="#methodology">Methodology</a></li>
-        <li><a href="#results">Results</a></li>
-        <li><a href="#demo">Demo</a></li>
-        <li><a href="#conclusion">Conclusion</a></li>
-        <li><a href="#references">References</a></li>
-      </ul>
+    <section id="toc" class="toc-section">
+      <h2 class="toc-title">Table of Contents</h2>
+      <table class="toc-table">
+        <tbody>
+          <tr><td><a href="#abstract">Abstract</a></td></tr>
+          <tr><td><a href="#intro">Introduction</a></td></tr>
+          <tr><td><a href="#literature">Related Work</a></td></tr>
+          <tr><td><a href="#methodology">Methodology</a></td></tr>
+          <tr><td><a href="#drone-simulation">Simulation</a></td></tr>
+          <tr><td><a href="#results">Results</a></td></tr>
+          <tr><td><a href="#demo">Demo</a></td></tr>
+          <tr><td><a href="#conclusion">Conclusion</a></td></tr>
+          <tr><td><a href="#references">References</a></td></tr>
+        </tbody>
+      </table>
     </section>
 
     <section id="intro" class="section">
@@ -213,6 +239,123 @@
         </p>
       </section>
       
+    </section>
+
+    <section id="drone-simulation" class="section bg-white rounded-xl shadow-md p-6">
+      <h2 class="text-3xl font-bold text-gray-800 mb-4">Drone Simulation</h2>
+      
+      <!-- Overview -->
+      <h3 class="text-2xl font-semibold text-gray-700 mt-4 mb-2">1. Overview</h3>
+      <p class="text-lg text-justify leading-relaxed px-2">
+        This module of the project focuses on simulating and controlling a quadcopter (drone) in a 3D virtual environment using <strong>CoppeliaSim</strong> (formerly V-REP). The drone is controlled using a custom PID controller integrated with realistic particle-based propulsion dynamics, providing an educational yet practical approach to UAV flight control.
+      </p>
+      <img src="images/drone-simulation-overview.png" alt="Drone Simulation Overview" class="rounded-lg shadow-md my-4 w-full md:w-2/3 mx-auto" />
+    
+      <!-- Components Added to the Drone -->
+      <h3 class="text-2xl font-semibold text-gray-700 mt-6 mb-2">2. Components Added to the Drone</h3>
+      
+      <!-- PID-Based Control System -->
+      <h4 class="text-xl font-semibold text-gray-600 mt-4 mb-2">2.1. PID-Based Control System</h4>
+      <p class="text-lg text-justify leading-relaxed px-2">
+        We implemented a custom PID (Proportional-Integral-Derivative) controller to stabilize and navigate the drone. This includes:
+      </p>
+      <ul class="list-disc list-inside text-lg ml-8 my-2">
+        <li><strong>Vertical Control:</strong> Manages altitude by comparing current and target heights.</li>
+        <li><strong>Horizontal Control:</strong> Adjusts the drone's pitch and roll to maintain lateral stability.</li>
+        <li><strong>Rotational Control:</strong> Uses yaw correction to stabilize orientation.</li>
+      </ul>
+      <p class="text-lg text-justify leading-relaxed px-2 mt-2">
+        <strong>Parameters Tuned:</strong>
+      </p>
+      <ul class="list-disc list-inside text-lg ml-8 my-2">
+        <li><code>pParam</code>, <code>iParam</code>, <code>dParam</code>: PID gains.</li>
+        <li><code>vParam</code>: Controls response to vertical speed (velocity damping).</li>
+      </ul>
+      
+      <!-- Realistic Propulsion Using Particle Dynamics -->
+      <h4 class="text-xl font-semibold text-gray-600 mt-4 mb-2">2.2. Realistic Propulsion Using Particle Dynamics</h4>
+      <p class="text-lg text-justify leading-relaxed px-2">
+        To simulate real-world rotor thrust, we used particle emitters attached to each propeller:
+      </p>
+      <ul class="list-disc list-inside text-lg ml-8 my-2">
+        <li>Particle emission models air push by rotors.</li>
+        <li>Emission rate is linked to motor velocity.</li>
+        <li>Added randomness to simulate scattering using <code>particleScatteringAngle</code>.</li>
+      </ul>
+      <p class="text-lg text-justify leading-relaxed px-2 mt-2">
+        <strong>Particle Physics Parameters:</strong>
+      </p>
+      <ul class="list-disc list-inside text-lg ml-8 my-2">
+        <li>Particle size: 0.005</li>
+        <li>Density: 8500</li>
+        <li>Lifetime: 0.5 seconds</li>
+        <li>Max particles: 50 per rotor</li>
+        <li>Physics flags: collision, cyclic behavior, gravity ignore</li>
+      </ul>
+      <img src="images/particle-dynamics.png" alt="Particle-Based Propulsion System" class="rounded-lg shadow-md my-4 w-full md:w-2/3 mx-auto" />
+      
+      <!-- Reactive Forces and Torques -->
+      <h4 class="text-xl font-semibold text-gray-600 mt-4 mb-2">2.3. Reactive Forces and Torques</h4>
+      <p class="text-lg text-justify leading-relaxed px-2">
+        Each emitted particle contributes to a net force and torque:
+      </p>
+      <ul class="list-disc list-inside text-lg ml-8 my-2">
+        <li>Net upward thrust calculated and applied based on emission rate and mass.</li>
+        <li>Rotational torque generated depending on propeller direction (to simulate drag-based rotation counteraction).</li>
+        <li>This approach simulates realistic physics, as opposed to directly applying forces.</li>
+      </ul>
+      
+      <!-- Independent Target Object -->
+      <h4 class="text-xl font-semibold text-gray-600 mt-4 mb-2">2.4. Independent Target Object</h4>
+      <p class="text-lg text-justify leading-relaxed px-2">
+        A separate target object (<code>targetObj</code>) is used as a reference for the drone to follow. This object can be moved programmatically or interactively, allowing:
+      </p>
+      <ul class="list-disc list-inside text-lg ml-8 my-2">
+        <li>Dynamic flight paths</li>
+        <li>Hovering at a specific location</li>
+        <li>Testing response to trajectory changes</li>
+      </ul>
+      <p class="text-lg text-justify leading-relaxed px-2">
+        Target is detached (<code>sim.setObjectParent(targetObj, -1, true)</code>) so it can move freely.
+      </p>
+      
+      <!-- Fake Shadow Visualization -->
+      <h4 class="text-xl font-semibold text-gray-600 mt-4 mb-2">2.5. Fake Shadow Visualization</h4>
+      <p class="text-lg text-justify leading-relaxed px-2">
+        A disc-based visual shadow is added under the drone to enhance realism and aid in debugging and visualization:
+      </p>
+      <ul class="list-disc list-inside text-lg ml-8 my-2">
+        <li>Implemented using <code>sim.addDrawingObject</code></li>
+        <li>Positioned at the drone's (x, y) coordinates with a fixed low z-coordinate.</li>
+        <li>Updated every simulation step.</li>
+      </ul>
+      
+      <!-- Propeller Motion -->
+      <h4 class="text-xl font-semibold text-gray-600 mt-4 mb-2">2.6. Propeller Motion</h4>
+      <p class="text-lg text-justify leading-relaxed px-2">
+        Each rotor has a simulated joint whose rotation is updated every time step:
+      </p>
+      <p class="text-lg px-4 py-2 bg-gray-100 rounded-md font-mono my-2 overflow-x-auto">
+        sim.setJointPosition(propellerJoint, t*10)
+      </p>
+      <p class="text-lg text-justify leading-relaxed px-2">
+        Helps simulate continuous rotation, aiding realism in visual feedback.
+      </p>
+      
+      <!-- Custom Simulation Settings -->
+      <h4 class="text-xl font-semibold text-gray-600 mt-4 mb-2">2.7. Custom Simulation Settings</h4>
+      <p class="text-lg text-justify leading-relaxed px-2">
+        The drone has configurable toggles for:
+      </p>
+      <ul class="list-disc list-inside text-lg ml-8 my-2">
+        <li><code>particlesAreVisible</code>: Toggles visibility of particle thrust.</li>
+        <li><code>simulateParticles</code>: Enables/disables particle dynamics.</li>
+        <li><code>fakeShadow</code>: Enables shadow rendering.</li>
+      </ul>
+      <p class="text-lg text-justify leading-relaxed px-2">
+        These flags make the simulation adjustable for different testing scenarios.
+      </p>
+      <img src="images/drone-settings.png" alt="Drone Simulation Settings" class="rounded-lg shadow-md my-4 w-full md:w-2/3 mx-auto" />
     </section>
     
 
